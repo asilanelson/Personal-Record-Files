@@ -1,0 +1,9 @@
+math
+english
+swahili
+chemistry
+geography
+physics
+biology
+computer studies
+business
