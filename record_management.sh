@@ -1,8 +1,18 @@
 #!/bin/bash
+record_file="/c/Users/Admin/desktop/Personal-Record-Files"
+back_directory=" /c/Users/Admin/desktop/Backups"
+Backup_interval=7
+
+function  create_backup() {
+	timestamp=$(date +%Y%m%d%H%M%S)
+	Backup_file="backup_directory/record_backup_$timestamp.txt"
+	cp "$record_file" "Backup_file"
+	echo "Backup created: $Backup_file"	
+}
 function display_menu() {
 	clear
 	echo	"Welcome to Record Management System"
-	echo	"------"
+	printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 	echo	"1. Add a new record"
 	echo	"2. Edit and existing record"
 	echo	"3. Search for a record"
@@ -44,7 +54,14 @@ function generate_reports() {
 		2) edit_record ;;
 		3) search_record ;;
 		4) generate_reports ;;
-		5) exit ;;
+		5) create_backup ;;
+		6) exit ;;
 		*) echo "Invalid choice.Please try again." ;;
 	esac
 done
+#back up function 
+function create_backup() {
+    timestamp=$(date +%Y%m%d%H%M%S)
+    backup_file="$backup_directory/record_backup_$timestamp.txt"
+    cp "$record_file" "$backup_file"
+    echo "Backup created: $backup_file"
