@@ -60,8 +60,9 @@ function generate_reports() {
 	esac
 done
 #back up function 
-function create_backup() {
-    timestamp=$(date +%Y%m%d%H%M%S)
-    backup_file="$backup_directory/record_backup_$timestamp.txt"
-    cp "$record_file" "$backup_file"
-    echo "Backup created: $backup_file"
+#function create_backup() {
+ #   timestamp=$(date +%Y%m%d%H%M%S)
+  #  backup_file="$backup_directory/record_backup_$timestamp.txt"
+   # cp "$record_file" "$backup_file"
+    #echo "Backup created: $backup_file"
+#}
